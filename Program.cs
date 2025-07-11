@@ -1,7 +1,17 @@
-﻿namespace TextRPG
+﻿using System.Net.Security;
+using System.Reflection.Metadata.Ecma335;
+
+namespace TextRPG
 {
     internal class Program
     {
+        static int level = 1;
+        static string name = "Chad";
+        static string job = "전사";
+        static int attack = 10;
+        static int shield = 5;
+        static int hp = 100;
+        static int gold = 1500;
         static void StartScene()
         {
             while (true)
@@ -34,10 +44,29 @@
         }
         static void MyValue()
         {
-            string name = "르탄";
-            Console.Clear();
-            Console.WriteLine("1. 상태 보기");
-            Console.WriteLine($"이름:{name} ");
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("1. 상태 보기");
+                Console.WriteLine($"Lv. {level}");
+                Console.WriteLine($"{name} ({job})");
+                Console.WriteLine($"공격력: {attack}");
+                Console.WriteLine($"방어력: {shield}");
+                Console.WriteLine($"체력: {hp}");
+                Console.WriteLine($"골드: {gold}G");
+                Console.WriteLine("\n 0. 나가기");
+                Console.WriteLine("\n원하시는 행동을 입력해주세요");
+                string input = Console.ReadLine();
+                if (input == "0")
+                {
+                    StartScene();
+                }
+                else
+                {
+                    continue;
+                }
+            }
+
         }
         static void ShopScene()
         {
@@ -48,7 +77,6 @@
         static void Inventory()
         {
             Console.Clear();
-            Console.WriteLine("2. 인벤토리");
         }
 
         static void Main(string[] args)
